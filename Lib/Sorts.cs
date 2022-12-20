@@ -7,7 +7,12 @@
     }
     public static class Sorts
     {
-        public static void BubbleSort<T>(T[] arr, SortDirection direction = SortDirection.ASC) where T: IComparable{
+        public static void BubbleSort<T>(T[] arr, SortDirection direction = SortDirection.ASC) where T: IComparable
+        {
+            if (arr.Length <= 1)
+            {
+                return;
+            }
             for (int i = 0; i < arr.Length - 1; i++)
             {
                 for (int j = i + 1; j < arr.Length; j++)
@@ -25,6 +30,10 @@
 
         public static void SelectionSort<T>(T[] arr, SortDirection direction = SortDirection.ASC) where T : IComparable
         {
+            if (arr.Length <= 1)
+            {
+                return;
+            }
             for (int i = 0; i < arr.Length - 1; i++)
             {
                 T current = arr[i];
@@ -48,6 +57,10 @@
 
         public static void InsertionSort<T>(T[] arr, SortDirection direction = SortDirection.ASC) where T: IComparable
         {
+            if (arr.Length <= 1)
+            {
+                return;
+            }
             for (int i = 1; i < arr.Length; i++)
             {
                 T current = arr[i];
