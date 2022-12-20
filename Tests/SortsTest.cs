@@ -19,7 +19,7 @@ public class SortsTest
     }
 
     [TestMethod]
-    public void AscTest()
+    public void BubbleSortTest()
     {
         int[] reference = GetArrCopy(ref IntegerArray);
         Array.Sort(reference);
@@ -29,31 +29,39 @@ public class SortsTest
         CollectionAssert.AreEqual(reference,arr1, ArrToString(ref arr1));
 
         int[] arr2 = GetArrCopy(ref IntegerArray);
-        TLib.Sorts.SelectionSort(arr2);
-        CollectionAssert.AreEqual(reference, arr2, ArrToString(ref arr2));
-
-        int[] arr3 = GetArrCopy(ref IntegerArray);
-        TLib.Sorts.InsertionSort(arr3);
-        CollectionAssert.AreEqual(reference, arr3, ArrToString(ref arr3));
+        TLib.Sorts.BubbleSort(arr2, SortDirection.DESC);
+        Array.Reverse(reference);
+        CollectionAssert.AreEqual(reference,arr2, ArrToString(ref arr2));
     }
 
      [TestMethod]
-    public void DescTest()
+    public void SelectionSortTest()
     {
         int[] reference = GetArrCopy(ref IntegerArray);
         Array.Sort(reference);
-        Array.Reverse(reference);
-        
+
         int[] arr1 = GetArrCopy(ref IntegerArray);
-        TLib.Sorts.BubbleSort(arr1, SortDirection.DESC);
+        TLib.Sorts.SelectionSort(arr1);
         CollectionAssert.AreEqual(reference,arr1, ArrToString(ref arr1));
 
         int[] arr2 = GetArrCopy(ref IntegerArray);
         TLib.Sorts.SelectionSort(arr2, SortDirection.DESC);
-        CollectionAssert.AreEqual(reference, arr2, ArrToString(ref arr2));
+        Array.Reverse(reference);
+        CollectionAssert.AreEqual(reference,arr2, ArrToString(ref arr2));
+    }
+    [TestMethod]
+    public void InsertionSortTest()
+    {
+        int[] reference = GetArrCopy(ref IntegerArray);
+        Array.Sort(reference);
 
-        int[] arr3 = GetArrCopy(ref IntegerArray);
-        TLib.Sorts.InsertionSort(arr3, SortDirection.DESC);
-        CollectionAssert.AreEqual(reference, arr3, ArrToString(ref arr3));
+        int[] arr1 = GetArrCopy(ref IntegerArray);
+        TLib.Sorts.InsertionSort(arr1);
+        CollectionAssert.AreEqual(reference,arr1, ArrToString(ref arr1));
+
+        int[] arr2 = GetArrCopy(ref IntegerArray);
+        TLib.Sorts.InsertionSort(arr2, SortDirection.DESC);
+        Array.Reverse(reference);
+        CollectionAssert.AreEqual(reference,arr2, ArrToString(ref arr2));
     }
 }
